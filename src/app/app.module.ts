@@ -3,6 +3,7 @@ import {TypeOrmModule} from '@nestjs/typeorm'
 import {AppController} from 'src/app/app.controller'
 import {AppService} from 'src/app/app.service'
 import {TodoModule} from 'src/modules/todo/todo.module'
+import {UserModule} from 'src/modules/user/user.module'
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -19,6 +20,7 @@ import {TodoModule} from 'src/modules/todo/todo.module'
     autoLoadEntities: true,
   }),
   TodoModule,
+  UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
