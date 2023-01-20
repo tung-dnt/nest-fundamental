@@ -16,16 +16,19 @@ export class User {
     name: string
 
   @CreateDateColumn({
+    name: 'created_at',
     default: `now()`,
   })
     createdAt: Date
 
   @UpdateDateColumn({
+    name: 'updated_at',
     default: `now()`,
   })
     updatedAt: Date
 
   @DeleteDateColumn({
+    name: 'deleted_at',
     nullable: true
   })
     deletedAt: Date

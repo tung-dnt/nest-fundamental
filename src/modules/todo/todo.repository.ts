@@ -11,9 +11,7 @@ export class TodoRepository extends Repository<Todo> {
   }
 
   findMany(): Promise<Todo[]> {
-    return this.createQueryBuilder()
-      .where({deletedAt: null})
-      .getMany()
+    return this.createQueryBuilder().getMany()
   }
 
   findFirst(query: Partial<CreateTodoDto>): Promise<Todo | null> {
@@ -24,8 +22,7 @@ export class TodoRepository extends Repository<Todo> {
 
   async deleteById(id: number): Promise<void> {
     await this.createQueryBuilder()
-      .update(Todo)
-      .set({deletedAt: new Date()})
+      .softDelete()
       .where('id = :id', {id})
       .execute()
   }
