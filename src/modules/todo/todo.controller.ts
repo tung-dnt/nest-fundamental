@@ -1,7 +1,7 @@
 import {Controller, Get, Post, Delete, Patch, Param, Body, ParseIntPipe, HttpCode} from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {TodoService} from 'src/modules/todo/todo.service'
+import {TodoService} from './todo.service'
 import {CreateTodoDto} from './dto/createTodo.dto'
 import {UpdateTodoDto} from './dto/updateTodo.dto'
 

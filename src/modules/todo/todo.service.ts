@@ -1,8 +1,8 @@
 import {Injectable} from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {TodoRepository} from 'src/modules/todo/todo.repository'
-import {CreateTodoDto} from 'src/modules/todo/dto/createTodo.dto'
+import {TodoRepository} from './todo.repository'
+import {CreateTodoDto} from './dto/createTodo.dto'
 import {UpdateTodoDto} from './dto/updateTodo.dto'
 import {QueryTodoDto} from './dto/queryTodo.dto'
 
