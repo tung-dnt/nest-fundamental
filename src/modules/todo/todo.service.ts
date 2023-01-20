@@ -4,6 +4,7 @@ import {ManipulateResponse} from 'src/types/common'
 import {TodoRepository} from 'src/modules/todo/todo.repository'
 import {CreateTodoDto} from 'src/modules/todo/dto/createTodo.dto'
 import {UpdateTodoDto} from './dto/updateTodo.dto'
+import {QueryTodoDto} from './dto/queryTodo.dto'
 
 @Injectable()
 export class TodoService {
@@ -14,7 +15,7 @@ export class TodoService {
     return this.todoRepository.findMany()
   }
 
-  getFirst(payload: Partial<CreateTodoDto>): Promise<Todo | null> {
+  getFirst(payload: Partial<QueryTodoDto>): Promise<Todo | null> {
     return this.todoRepository.findFirst(payload)
   }
 

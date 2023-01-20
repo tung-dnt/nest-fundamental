@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Delete, Patch, Param, Body} from '@nestjs/common'
+import {Controller, Get, Post, Delete, Patch, Param, Body, ParseIntPipe, HttpCode} from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
 import {TodoService} from 'src/modules/todo/todo.service'
@@ -16,30 +16,29 @@ export class TodoController {
   }
 
   @Get(':id')
-  async getTodo(@Param('id') id: string): Promise<Todo | null> {
-    return this.todoService.getFirst({id: Number(id)})
+  async getTodo(@Param('id', ParseIntPipe) id: number): Promise<Todo | null> {
+    return this.todoService.getFirst({id})
   }
 
-  // TODO: DTO validation
   @Post()
+  @HttpCode(201)
   async createTodo(@Body() body: CreateTodoDto): Promise<ManipulateResponse> {
     await this.todoService.create(body)
     return {success: true}
   }
 
-  // TODO: DTO validation
   @Patch()
   async updateTodo(
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() body: UpdateTodoDto
   ): Promise<ManipulateResponse> {
-    await this.todoService.update(Number(id), body)
+    await this.todoService.update(id, body)
     return {success: true}
   }
 
   @Delete(':id')
-  async deleteTodoById(@Param('id') id: string): Promise<ManipulateResponse> {
-    await this.todoService.removeById(Number(id))
+  async deleteTodoById(@Param('id', ParseIntPipe) id: number): Promise<ManipulateResponse> {
+    await this.todoService.removeById(id)
     return {success: true}
   }
 }

@@ -1,13 +1,18 @@
-import {Length, IsInt, IsOptional, Max, Min} from 'class-validator'
+import {IsInt, Min, Max, IsOptional} from 'class-validator'
 import {TodoStatus} from 'src/modules/todo/interfaces/todo'
 
-export class CreateTodoDto {
-  @Length(1, 100)
+export class QueryTodoDto {
+  @IsOptional()
+  @IsInt()
+    id: number
+
+  @IsOptional()
     title: string
 
   @IsOptional()
     note: string
 
+  @IsOptional()
   @IsInt()
   @Min(1)
   @Max(3)
