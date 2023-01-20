@@ -1,5 +1,5 @@
 import {Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn} from 'typeorm'
-import {TodoStatus} from 'src/app/todo/interfaces/todo'
+import {TodoStatus} from 'src/modules/todo/interfaces/todo'
 
 @Entity({name: 'todos'})
 export class Todo {
@@ -18,15 +18,15 @@ export class Todo {
   @CreateDateColumn({
     default: `now()`,
   })
-    createdAt: string
+    createdAt: Date
 
   @UpdateDateColumn({
     default: `now()`,
   })
-    updatedAt: string
+    updatedAt: Date
 
   @DeleteDateColumn({
     nullable: true
   })
-    deletedAt: string
+    deletedAt: Date
 }

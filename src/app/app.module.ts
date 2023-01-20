@@ -2,7 +2,7 @@ import {Module} from '@nestjs/common'
 import {TypeOrmModule} from '@nestjs/typeorm'
 import {AppController} from 'src/app/app.controller'
 import {AppService} from 'src/app/app.service'
-import {TodoModule} from 'src/app/todo/todo.module'
+import {TodoModule} from 'src/modules/todo/todo.module'
 
 @Module({
   imports: [TypeOrmModule.forRoot({
