@@ -1,10 +1,10 @@
 import {Injectable} from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {TodoRepository} from './todo.repository'
-import {CreateTodoDto} from './dto/createTodo.dto'
-import {UpdateTodoDto} from './dto/updateTodo.dto'
-import {QueryTodoDto} from './dto/queryTodo.dto'
+import {TodoRepository} from '../repositories/todo.repository'
+import {CreateTodoDto} from '../dto/createTodo.dto'
+import {UpdateTodoDto} from '../dto/updateTodo.dto'
+import {QueryTodoDto} from '../dto/queryTodo.dto'
 
 @Injectable()
 export class TodoService {

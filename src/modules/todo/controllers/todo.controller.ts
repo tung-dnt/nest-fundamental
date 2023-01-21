@@ -1,11 +1,24 @@
-import {Controller, Get, Post, Delete, Patch, Param, Body, ParseIntPipe, HttpCode} from '@nestjs/common'
+import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Patch,
+  Param,
+  Body,
+  ParseIntPipe,
+  HttpCode,
+  UseGuards
+} from '@nestjs/common'
+import {AuthGuard} from '@nestjs/passport'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {TodoService} from './todo.service'
-import {CreateTodoDto} from './dto/createTodo.dto'
-import {UpdateTodoDto} from './dto/updateTodo.dto'
+import {TodoService} from '../services/todo.service'
+import {CreateTodoDto} from '../dto/createTodo.dto'
+import {UpdateTodoDto} from '../dto/updateTodo.dto'
 
 @Controller('todos')
+@UseGuards(AuthGuard())
 export class TodoController {
   constructor(private readonly todoService: TodoService) {
   }

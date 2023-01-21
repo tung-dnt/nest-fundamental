@@ -9,17 +9,13 @@ import {
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn() id: number
 
-  @Column()
-    name: string
+  @Column() name: string
 
-  @Column()
-    email: string
+  @Column({unique: true}) email: string
 
-  @Column()
-    password: string
+  @Column() password: string
 
   @CreateDateColumn({
     name: 'created_at',
