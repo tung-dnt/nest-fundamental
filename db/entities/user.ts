@@ -17,6 +17,8 @@ export class User {
 
   @Column() password: string
 
+  @Column({nullable: true}) refreshToken: string | null
+
   @CreateDateColumn({
     name: 'created_at',
     default: `now()`,

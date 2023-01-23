@@ -12,13 +12,13 @@ import {
 } from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {JwtAuthGuard} from 'src/middlewares/auth.guard'
+import {AccessJwtAuthGuard} from 'src/middlewares/access_token.guard'
 import {TodoService} from '../providers/todo.service'
 import {CreateTodoDto} from '../dto/createTodo.dto'
 import {UpdateTodoDto} from '../dto/updateTodo.dto'
 
 @Controller('todos')
-@UseGuards(JwtAuthGuard)
+@UseGuards(AccessJwtAuthGuard)
 export class TodoController {
   constructor(private readonly todoService: TodoService) {
   }

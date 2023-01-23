@@ -1,8 +1,8 @@
 import {HttpException, HttpStatus, Injectable, UnauthorizedException} from '@nestjs/common'
 import * as bcrypt from 'bcrypt'
 import {User} from 'db/entities/user'
-import {UserRepository} from '../repositories/user.repository'
 import {CreateUserDto, LoginUserDto} from '../dto/user.dto'
+import {UserRepository} from '../repositories/user.repository'
 
 @Injectable()
 export class UserService {
@@ -35,5 +35,9 @@ export class UserService {
       throw new UnauthorizedException()
     }
     return user
+  }
+
+  async updateUserRefreshToken(userId: number, refreshToken: string | null): Promise<void> {
+    await this.userRepository.update({id: userId}, {refreshToken})
   }
 }
