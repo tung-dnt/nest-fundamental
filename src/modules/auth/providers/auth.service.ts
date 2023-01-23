@@ -1,9 +1,9 @@
 import {Injectable} from '@nestjs/common'
 import {JwtService} from '@nestjs/jwt'
 import {User} from 'db/entities/user'
-import {UserService} from './user.service'
-import {CreateUserDto, LoginUserDto} from '../dto/user.dto'
-import {AuthResponse} from '../interfaces/auth'
+import {AuthResponse} from 'src/modules/auth/interfaces/auth'
+import {UserService} from 'src/modules/user/providers/user.service'
+import {CreateUserDto, LoginUserDto} from 'src/modules/user/dto/user.dto'
 
 @Injectable()
 export class AuthService {
@@ -39,7 +39,7 @@ export class AuthService {
     return this.jwtService.sign(
       {email},
       {
-        secret: process.env.SECRET_KEY,
+        secret: process.env.ACCESS_TOKEN_STRATEGY,
         expiresIn: Number(process.env.EXPIRE)
       }
     )

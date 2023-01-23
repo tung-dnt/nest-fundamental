@@ -8,17 +8,17 @@ import {
   Body,
   ParseIntPipe,
   HttpCode,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common'
-import {AuthGuard} from '@nestjs/passport'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'src/types/common'
-import {TodoService} from '../services/todo.service'
+import {JwtAuthGuard} from 'src/middlewares/auth.guard'
+import {TodoService} from '../providers/todo.service'
 import {CreateTodoDto} from '../dto/createTodo.dto'
 import {UpdateTodoDto} from '../dto/updateTodo.dto'
 
 @Controller('todos')
-@UseGuards(AuthGuard())
+@UseGuards(JwtAuthGuard)
 export class TodoController {
   constructor(private readonly todoService: TodoService) {
   }
@@ -40,7 +40,7 @@ export class TodoController {
     return {success: true}
   }
 
-  @Patch()
+  @Patch(':id')
   async updateTodo(
     @Param('id', ParseIntPipe) id: number,
     @Body() body: UpdateTodoDto
