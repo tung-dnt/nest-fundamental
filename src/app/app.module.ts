@@ -19,8 +19,6 @@ import {AuthModule} from 'src/modules/auth/auth.module'
       database: process.env.DB_NAME,
       synchronize: true,
       entities: ['__dirname/db/entities/*.entity.ts'],
-      subscribers: ['__dirname/db/subscribers/*.ts'],
-      migrations: ['__dirname/db/migrations/*.ts'],
       autoLoadEntities: true,
     }),
     TodoModule,

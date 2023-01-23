@@ -22,9 +22,9 @@ export class AuthController {
 
   @UseGuards(AccessJwtAuthGuard)
   @Delete('logout')
-  async lougout(@Req() req: any): Promise<string> {
-    const user = req.user
-    await this.authService.logout(Number(user.id))
+  async logout(@Req() req: any): Promise<string> {
+    const {id} = req.user
+    await this.authService.logout(Number(id))
     return 'Logged out !!!'
   }
 
