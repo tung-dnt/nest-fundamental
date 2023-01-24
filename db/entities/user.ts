@@ -11,11 +11,11 @@ import {
 export class User {
   @PrimaryGeneratedColumn() id: number
 
-  @Column() name: string
+  @Column({type: 'text'}) name: string
 
-  @Column({unique: true}) email: string
+  @Column({unique: true, type: 'text'}) email: string
 
-  @Column() password: string
+  @Column({type: 'text'}) password: string
 
   @Column({
     nullable: true,
@@ -26,18 +26,21 @@ export class User {
   @CreateDateColumn({
     name: 'created_at',
     default: `now()`,
+    type: 'datetime'
   })
     createdAt: Date
 
   @UpdateDateColumn({
     name: 'updated_at',
     default: `now()`,
+    type: 'datetime'
   })
     updatedAt: Date
 
   @DeleteDateColumn({
     name: 'deleted_at',
-    nullable: true
+    nullable: true,
+    type: 'datetime'
   })
     deletedAt: Date
 }
