@@ -1,5 +1,5 @@
-import {TodoStatus} from 'src/modules/todo/interfaces/todo'
 import {IsInt, IsOptional, Length, Max, Min} from 'class-validator'
+import {TodoStatus} from 'modules/todo/interfaces/todo'
 
 export class UpdateTodoDto {
   @Length(1, 100)

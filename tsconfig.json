@@ -16,6 +16,26 @@
     "noImplicitAny": true,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "src/*": [
+        "src/*"
+      ],
+      "modules/*": [
+        "src/modules/*"
+      ],
+      "db/*": [
+        "db/*"
+      ],
+      "types/*": [
+        "src/types/*"
+      ],
+      "middlewares/*": [
+        "src/middlewares/*"
+      ],
+      "helpers/*": [
+        "src/helpers/*"
+      ]
+    }
   }
 }

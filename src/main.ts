@@ -2,7 +2,7 @@ import {NestFactory} from '@nestjs/core'
 import {ValidationPipe} from '@nestjs/common'
 import * as cookieParser from 'cookie-parser'
 import {AppModule} from 'src/app/app.module'
-import {HttpErrorFilter} from './helpers/exception.filter'
+import {HttpErrorFilter} from 'helpers/exception.filter'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)

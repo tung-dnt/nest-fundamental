@@ -11,11 +11,11 @@ import {
   UseGuards,
 } from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
-import {ManipulateResponse} from 'src/types/common'
-import {AccessJwtAuthGuard} from 'src/middlewares/access_token.guard'
-import {TodoService} from '../providers/todo.service'
-import {CreateTodoDto} from '../dto/createTodo.dto'
-import {UpdateTodoDto} from '../dto/updateTodo.dto'
+import {ManipulateResponse} from 'types/common'
+import {AccessJwtAuthGuard} from 'middlewares/access_token.guard'
+import {TodoService} from 'modules/todo/providers/todo.service'
+import {CreateTodoDto} from 'modules/todo/dto/createTodo.dto'
+import {UpdateTodoDto} from 'modules/todo/dto/updateTodo.dto'
 
 @Controller('todos')
 @UseGuards(AccessJwtAuthGuard)

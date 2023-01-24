@@ -1,8 +1,8 @@
 import {DataSource, Repository} from 'typeorm'
 import {Injectable} from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
-import {CreateTodoDto} from '../dto/createTodo.dto'
-import {UpdateTodoDto} from '../dto/updateTodo.dto'
+import {CreateTodoDto} from 'modules/todo/dto/createTodo.dto'
+import {UpdateTodoDto} from 'modules/todo/dto/updateTodo.dto'
 
 @Injectable()
 export class TodoRepository extends Repository<Todo> {

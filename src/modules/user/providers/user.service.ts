@@ -1,8 +1,8 @@
 import {HttpException, HttpStatus, Injectable, UnauthorizedException} from '@nestjs/common'
 import * as bcrypt from 'bcrypt'
 import {User} from 'db/entities/user'
-import {CreateUserDto, LoginUserDto} from '../dto/user.dto'
-import {UserRepository} from '../repositories/user.repository'
+import {CreateUserDto, LoginUserDto} from 'modules/user/dto/user.dto'
+import {UserRepository} from 'modules/user/repositories/user.repository'
 
 @Injectable()
 export class UserService {

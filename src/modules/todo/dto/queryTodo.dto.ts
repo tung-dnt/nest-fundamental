@@ -1,5 +1,5 @@
 import {IsInt, Min, Max, IsOptional} from 'class-validator'
-import {TodoStatus} from 'src/modules/todo/interfaces/todo'
+import {TodoStatus} from 'modules/todo/interfaces/todo'
 
 export class QueryTodoDto {
   @IsOptional()
