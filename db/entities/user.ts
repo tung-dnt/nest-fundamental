@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   DeleteDateColumn
 } from 'typeorm'
+import {Role} from 'types/role'
 
 @Entity('users')
 export class User {
@@ -16,6 +17,8 @@ export class User {
   @Column({unique: true, type: 'text'}) email: string
 
   @Column({type: 'text'}) password: string
+
+  @Column({type: 'smallint'}) role: Role
 
   @Column({
     nullable: true,

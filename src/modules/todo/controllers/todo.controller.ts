@@ -8,17 +8,17 @@ import {
   Body,
   ParseIntPipe,
   HttpCode,
-  UseGuards,
 } from '@nestjs/common'
 import {Todo} from 'db/entities/todo'
 import {ManipulateResponse} from 'types/common'
-import {AccessJwtAuthGuard} from 'middlewares/access_token.guard'
+import {Role} from 'types/role'
+import {Auth} from 'decorators/auth.decorator'
 import {TodoService} from 'modules/todo/providers/todo.service'
 import {CreateTodoDto} from 'modules/todo/dto/createTodo.dto'
 import {UpdateTodoDto} from 'modules/todo/dto/updateTodo.dto'
 
 @Controller('todos')
-@UseGuards(AccessJwtAuthGuard)
+@Auth(Role.USER, Role.ADMIN)
 export class TodoController {
   constructor(private readonly todoService: TodoService) {
   }

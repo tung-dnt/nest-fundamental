@@ -77,7 +77,8 @@
       "^modules/(.*)$": "<rootDir>/src/modules/$1",
       "^types/(.*)$": "<rootDir>/src/types/$1",
       "^middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
-      "^helpers/(.*)$": "<rootDir>/src/helpers/$1"
+      "^helpers/(.*)$": "<rootDir>/src/helpers/$1",
+      "^decorators/(.*)$": "<rootDir>/src/decorators/$1"
     },
     "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
