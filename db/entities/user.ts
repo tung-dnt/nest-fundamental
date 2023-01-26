@@ -18,7 +18,11 @@ export class User {
 
   @Column({type: 'text'}) password: string
 
-  @Column({type: 'smallint'}) role: Role
+  @Column({
+    type: 'smallint',
+    default: Role.USER
+  })
+    role: Role
 
   @Column({
     nullable: true,
@@ -29,21 +33,21 @@ export class User {
   @CreateDateColumn({
     name: 'created_at',
     default: `now()`,
-    type: 'datetime'
+    type: 'date'
   })
     createdAt: Date
 
   @UpdateDateColumn({
     name: 'updated_at',
     default: `now()`,
-    type: 'datetime'
+    type: 'date'
   })
     updatedAt: Date
 
   @DeleteDateColumn({
     name: 'deleted_at',
     nullable: true,
-    type: 'datetime'
+    type: 'date'
   })
     deletedAt: Date
 }

@@ -18,21 +18,21 @@ export class Todo {
   @CreateDateColumn({
     name: 'created_at',
     default: `now()`,
-    type: 'datetime'
+    type: 'date'
   })
     createdAt: Date
 
   @UpdateDateColumn({
     name: 'updated_at',
     default: `now()`,
-    type: 'datetime'
+    type: 'date'
   })
     updatedAt: Date
 
   @DeleteDateColumn({
     name: 'deleted_at',
     nullable: true,
-    type: 'datetime'
+    type: 'date'
   })
     deletedAt: Date
 }
