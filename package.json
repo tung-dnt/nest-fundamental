@@ -39,6 +39,7 @@
     "typeorm": "^0.3.11"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
@@ -78,7 +79,8 @@
       "^types/(.*)$": "<rootDir>/src/types/$1",
       "^middlewares/(.*)$": "<rootDir>/src/middlewares/$1",
       "^helpers/(.*)$": "<rootDir>/src/helpers/$1",
-      "^decorators/(.*)$": "<rootDir>/src/decorators/$1"
+      "^decorators/(.*)$": "<rootDir>/src/decorators/$1",
+      "^test/(.*)$": "<rootDir>/test/$1"
     },
     "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
